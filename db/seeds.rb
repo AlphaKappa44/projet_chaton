@@ -5,12 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-20.times do 
-  kitten = ImageSuckr::GoogleSuckr.new
-  i=Item.create(title: Faker::Creature::Cat.name, description: Faker::Creature::Cat.breed, price: Faker::Number.leading_zero_number(digits: 3), image_url:"https://placekitten.com/800/#{rand(800..999)}")
-  p i.errors
-  # kitten.get_image_url({"q" => "kitten"})
-
-end
