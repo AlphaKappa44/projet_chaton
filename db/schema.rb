@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_06_02_082536) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,11 +19,10 @@ ActiveRecord::Schema.define(version: 2020_06_02_082536) do
     t.string "title"
     t.text "description"
     t.decimal "price"
-    t.string "image_url"
+    t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
