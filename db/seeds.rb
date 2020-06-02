@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Item.destroy_all
 
 20.times do 
   kitten = ImageSuckr::GoogleSuckr.new
