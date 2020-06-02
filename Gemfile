@@ -72,6 +72,3 @@ gem 'table_print'
 
 # Gem for user system
 gem 'devise'
-
-gem 'faker'
-gem 'image_suckr'
