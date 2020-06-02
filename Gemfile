@@ -66,3 +66,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Display db tables in a better way
+gem 'table_print'
+
+# Gem for user system
+gem 'devise'
