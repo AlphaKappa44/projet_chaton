@@ -75,3 +75,5 @@ gem 'devise'
 
 gem 'faker'
 gem 'image_suckr'
+
+gem 'stripe'
