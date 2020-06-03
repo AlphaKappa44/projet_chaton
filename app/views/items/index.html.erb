@@ -13,6 +13,7 @@
           <h5 class="card-title"><%= x.title %></h5>
           <p class="card-text"><%= x.description %></p>
           <h6 class="card-subtitle mb-2 text-muted"><%= x.price %></h6>
+         <%= button_to "product", item_path(x.id), method: :get  %>
         </div>
       </div>
       </p>
