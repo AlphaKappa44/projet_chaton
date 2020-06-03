@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_104111) do
+ActiveRecord::Schema.define(version: 2020_06_03_162315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2020_06_03_104111) do
     t.text "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "join_table_cart_items", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_join_table_cart_items_on_cart_id"
+    t.index ["item_id"], name: "index_join_table_cart_items_on_item_id"
   end
 
   create_table "joint_table_cart_items", id: false, force: :cascade do |t|
