@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class JointTableCartItemTest < ActiveSupport::TestCase
+class JoinTableCartItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
