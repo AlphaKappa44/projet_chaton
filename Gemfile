@@ -75,3 +75,6 @@ gem 'devise'
 
 gem 'faker'
 gem 'image_suckr'
+
+# pour tester le mailer
+gem 'dotenv-rails'
