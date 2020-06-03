@@ -8,8 +8,6 @@ class User < ApplicationRecord
   has_one :cart
   has_many :orders
 
-
-
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
