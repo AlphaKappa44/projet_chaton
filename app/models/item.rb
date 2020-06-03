@@ -2,6 +2,9 @@ require 'uri'
 
 class Item < ApplicationRecord
 
+  has_many :joint_table_cart_items
+  has_many :carts, through: :joint_table_cart_items
+
   validates :title,
     presence: true, length: { minimum: 2 }
 
