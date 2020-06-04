@@ -1,0 +1,26 @@
+<%total_cart_item_price = 0%>
+<% @join_table_cart_items.each do |join_table_cart_item| %>
+
+<div class="container-fluid">
+    <div class="content-wrapper">
+		<div class="item-container">
+			<div class="container">
+        <div class="card" >
+          <div class="card-body">
+          <% item = Item.find_by(id: join_table_cart_item.item_id) %>
+          <%total_cart_item_price += item.price%>
+          <img id="item-display" class="img-fluid" style="height:72px;width:50px" src=" <%= item.image_url %> ">
+            item : <%= join_table_cart_item.item_id%><br/>
+            cart : <%= join_table_cart_item.cart_id%><br/>
+            price : <%= item.price%><br/>
+
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+<% end %>
+total_cart_item_price : <%= total_cart_item_price %> <br/>
+
+
