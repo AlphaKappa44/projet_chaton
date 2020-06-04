@@ -3,7 +3,7 @@ class CartsController < ApplicationController
     
   end
 
-  def edith
+  def edit
   end
 
   def update

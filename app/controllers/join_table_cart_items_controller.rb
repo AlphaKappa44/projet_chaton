@@ -19,4 +19,11 @@ class JoinTableCartItemsController < ApplicationController
       flash.alert = nil
     end
   end
+
+  def destroy
+    @cart = Cart.find_by(user_id: current_user.id)
+    @join_table_cart_item = JoinTableCartItem.find_by(cart_id: @cart.id, item_id: params[:item_id])
+    @join_table_cart_item.destroy
+    redirect_to cart_path
+  end
 end
