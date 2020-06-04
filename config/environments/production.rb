@@ -93,5 +93,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Mailer configuration for Heroku
-  config.action_mailer.default_url_options = { host: 'projet-chaton-development.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'projet-chaton-production.herokuapp.com' }
 end
