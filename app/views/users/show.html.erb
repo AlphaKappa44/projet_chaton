@@ -1,0 +1,99 @@
+<div style="margin-top: 5rem; text-align: center">
+  <h1> Welcome to your profile !</h1>
+
+    <div class="card mx-auto" style="width: 18rem; margin-top: 5rem;">
+    <div class="card-body">
+
+      
+      
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= @user.email %></li>
+        <li class="list-group-item">
+          <a class="btn btn-primary" href=" <%= edit_user_registration_path %> " role="button">Edit your profile</a> </br>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div style="margin-top: 5rem; text-align: center">
+  <h1> Orders made : </h1>
+  <hr>
+  <div class="mb-5">
+  <h4 class="mb-2"> Order 1</h5>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100">
+    </div>
+    <small> Kitten 1</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100">
+    </div>
+    <small>Kitten 2</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100">
+    </div>
+    <small> Kitten 3</small>
+  </a>
+</div>
+
+
+  <hr>
+  <div class="mb-5">
+  <h4 class="mb-2"> Order 2 </h5>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100">
+    </div>
+    <small> Kitten 1 </small>
+  </a>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Boucle pour presenter toutes les commandes passées -->
+<div class="container">
+  <div class="card-columns" style="margin-top: 5rem;">
+    <% Item.all.each do |x| %>
+      <p>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=" <%= x.image_url %> " alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= x.title %></h5>
+          <p class="card-text"><%= x.description %></p>
+          <h6 class="card-subtitle mb-2 text-muted"><%= x.price %></h6>
+          <%= button_to "product", item_path(x.id), method: :get  %>
+        </div>
+      </div>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% Order.where(user_id: @user.id).each do |x| %>
+        <div class="col-md-4">
+          <div class="card mb-4 box-shadow">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                
+              <p class="list-group-item">Created </br> <%= @order.created_at %></p>
+
+              nom de la table de jonction (mettre la deuxième boucle) find by order id x.id + display nom et prix)
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
