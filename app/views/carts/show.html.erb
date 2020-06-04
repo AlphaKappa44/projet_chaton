@@ -16,9 +16,14 @@
           <td><%= button_to "remove from cart", cart_join_table_cart_item_path(item_id: join_table_cart_item.item_id, cart_id: join_table_cart_item.cart_id, id: join_table_cart_item.id), method: :delete , class: "btn btn-info"%></td>
           </div>
         </div>
+      </div>
+    </div>
       <% end %>
 
     <!-- stripe -->
+    <div class="content-wrapper">
+      <div class="item-container">
+        <div class="container">
     <%= form_tag charges_path do %>
       <article>
         <% if flash[:error].present? %>
@@ -37,9 +42,9 @@
         data-amount=<%= total_cart_item_price * 100 %>
         data-locale="auto"></script>
     <% end %>
-    
-		</div>
-	</div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
-total_cart_item_price : <%= total_cart_item_price %> <br/>
