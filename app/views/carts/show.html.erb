@@ -13,7 +13,7 @@
             item : <%= join_table_cart_item.item_id%><br/>
             cart : <%= join_table_cart_item.cart_id%><br/>
             price : <%= item.price%><br/>
-
+          <td><%= button_to "remove from cart", cart_join_table_cart_item_path(item_id: item.id, cart_id: params[:id]), method: :delete , class: "btn btn-primary"%></td>
           </div>
         </div>
       </div>
