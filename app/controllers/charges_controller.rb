@@ -3,6 +3,9 @@ class ChargesController < ApplicationController
   end
   
   def create
+    @user = current_user
+    Order.create(user_id: @user.id)
+    Cart.empty(@user)
     # Amount in cents
     @amount = 500
   
@@ -18,6 +21,8 @@ class ChargesController < ApplicationController
       currency: 'usd',
     })
   
+    redirect_to root_path
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
