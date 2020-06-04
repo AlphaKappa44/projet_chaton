@@ -4,7 +4,10 @@ class ChargesController < ApplicationController
   
   def create
     @user = current_user
-    Order.create(user_id: @user.id)
+    @order = Order.create(user_id: @user.id)
+    JoinTableCartItem.where(cart_id: Cart.find_by(user_id: @user.id).id).each do |x| 
+      JoinTableOrderItem.create(order_id: @order.id, item_id: x.item_id)
+    end
     Cart.empty(@user)
     # Amount in cents
     @amount = 500
