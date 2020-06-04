@@ -1,0 +1,25 @@
+<div class="mx-auto" style="margin-top: 5rem; width: 500px;">
+  <h1> Bienvenue sur Kitten Project !</h1>
+</div>
+
+<!-- Boucle pour presenter tous les Items -->
+<div class="container">
+  <div class="card-columns" style="margin-top: 5rem;">
+    <% Item.all.each do |x| %>
+      <p>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=" <%= x.image_url %> " alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= x.title %></h5>
+          <p class="card-text"><%= x.description %></p>
+          <h6 class="card-subtitle mb-2 text-muted"><%= x.price %></h6>
+          <%= button_to "product", item_path(x.id), method: :get , class: "btn btn-info" %>
+        </div>
+      </div>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+
+

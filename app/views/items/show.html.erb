@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="content-wrapper">
+		<div class="item-container">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="product col-md-3 service-image-left">
+							<img id="item-display" class="img-fluid" src=" <%= @item.image_url %> " alt="">
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="product-title"><%= @item.title %></div>
+					<div class="product-desc"><%= @item.description %></div>
+					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+					<hr>
+					<div class="product-price">$ <%= @item.price %></div>
+					<div class="product-stock">In Stock</div>
+          <hr>
+					<% if user_signed_in?%>
+            <div class="btn-group cart">
+							<td><%= button_to "add to cart", cart_join_table_cart_items_path(item_id: @item.id, cart_id: @cart.user_id), method: :post , class: "btn btn-info"%></td>
+            </div>
+          <%end%>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="col-md-12 product-info">
+					<ul id="myTab" class="nav nav-tabs nav_tabs">
+
+						<li class="active"><a href="#service-one" data-toggle="tab">DESCRIPTION</a></li>
+						<li><a href="#service-two" data-toggle="tab">PRODUCT INFO</a></li>
+						<li><a href="#service-three" data-toggle="tab">REVIEWS</a></li>
+
+					</ul>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="service-one">
+
+							<section class="container product-info">
+
+								<h3><%= @item.description %></h3>
+							</section>
+
+						</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+	</div>
+</div>

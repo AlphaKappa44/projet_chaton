@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" id="test" href="<%= root_path %>">Kitten project</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="<%= root_path %>">Home</a>
+      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= panier_path %>">Cart</a>
+        </li>
+      <% end %>
+      <li class="nav-item dropdown">
+      <% if user_signed_in? %>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        User account / Sign Out
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="<%= user_path(current_user.id) %>">Account</a>
+          <a class="dropdown-item" href="<%=  destroy_user_session_path %>" data-method="DELETE">Sign out</a>
+        </div>
+      <% else %>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sign up / sign in
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="<%=new_user_registration_path%>">Sign up</a>
+          <a class="dropdown-item" href="<%=user_session_path%>">Sign in</a>
+        </div>
+      <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>

@@ -1,0 +1,24 @@
+<div class="mx-auto" style="margin-top: 5rem; width: 500px;">
+  <h1> Bienvenue sur Kitten Project !</h1>
+  <h6> show product page </h6>
+
+</div>
+
+<div class="container">
+  <div class="card-columns" style="margin-top: 5rem;">
+      <p>
+      <div class="card" >
+        <img class="card-img-top" src=" <%= @item.image_url %> " alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= @item.title %></h5>
+          <p class="card-text"><%= @item.description %></p>
+          <h6 class="card-subtitle mb-2 text-muted"><%= @item.price %></h6>
+        </div>
+      </div>
+      </p>
+  </div>
+</div>
+
+
+
+

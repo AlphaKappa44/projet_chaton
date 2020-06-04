@@ -1,0 +1,38 @@
+<div style="margin-top: 5rem; text-align: center">
+  <h1> Welcome to your profile !</h1>
+
+    <div class="card mx-auto" style="width: 18rem; margin-top: 5rem;">
+    <div class="card-body">
+
+      
+      
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= @user.email %></li>
+        <li class="list-group-item">
+          <a class="btn btn-primary" href=" <%= edit_user_registration_path %> " role="button">Edit your profile</a> </br>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Boucle pour présenter toutes les commandes passées -->
+
+<div class="mx-auto" style="margin-top: 5rem; text-align: center; width: 80%">
+  <h1> Orders made : </h1>
+  <hr>
+  <div class="mb-5">
+    <% Order.where(user_id: @user.id).each do |x| %>
+      <h4 class="mb-2"> Order passed at <%= x.created_at %></h5>
+      <% JoinTableOrderItem.where(order_id: x.id).all.each do |y| %>
+        <a href=" <%= item_path(y.id) %> " class="list-group-item list-group-item-action">
+          <div class="d-flex w-100">
+          </div>
+          <small> <%=Item.find(y.item_id).title%> </small>
+          <small> <%=Item.find(y.item_id).price%> </small>
+        </a>
+      <%end%>
+      </br> </br>
+    <% end %>
+  </div>
+</div>
