@@ -1,0 +1,45 @@
+<%total_cart_item_price = 0%>
+<% @join_table_cart_items.each do |join_table_cart_item| %>
+
+<div class="container-fluid">
+    <div class="content-wrapper">
+		<div class="item-container">
+			<div class="container">
+        <div class="card" >
+          <div class="card-body">
+          <% item = Item.find_by(id: join_table_cart_item.item_id) %>
+          <%total_cart_item_price += item.price%>
+          <img id="item-display" class="img-fluid" style="height:72px;width:50px" src=" <%= item.image_url %> ">
+            item : <%= join_table_cart_item.item_id%><br/>
+            cart : <%= join_table_cart_item.cart_id%><br/>
+            price : <%= item.price%><br/>
+          <td><%= button_to "remove from cart", cart_join_table_cart_item_path(item_id: join_table_cart_item.item_id, cart_id: join_table_cart_item.cart_id, id: join_table_cart_item.id), method: :delete , class: "btn btn-info"%></td>
+          </div>
+        </div>
+      <% end %>
+
+    <!-- stripe -->
+    <%= form_tag charges_path do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+        <label class="amount">
+          <span>Amount: <%= total_cart_item_price %></span>
+        </label>
+      </article>
+    
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-description="Your order"
+        data-amount=<%= total_cart_item_price * 100 %>
+        data-locale="auto"></script>
+    <% end %>
+    
+		</div>
+	</div>
+</div>
+
+total_cart_item_price : <%= total_cart_item_price %> <br/>

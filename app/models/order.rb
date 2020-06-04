@@ -1,6 +1,9 @@
 class Order < ApplicationRecord
-  has_one :user
-  has_many :items, through: :user
+
+  belongs_to :user
+
+  has_many :join_table_order_items
+  has_many :items, through: :join_table_order_items
 
   after_create :order_send
 
