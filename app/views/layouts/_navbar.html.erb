@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" id="test" href="<%= root_path %>">Kitten project</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -9,6 +9,11 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= root_path %>">Home</a>
       </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= cart_path(Cart.find_by(user_id: current_user.id)) %>">Cart</a>
+        </li>
+      <% end %>
       <li class="nav-item dropdown">
       <% if user_signed_in? %>
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
