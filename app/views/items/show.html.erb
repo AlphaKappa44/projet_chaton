@@ -17,16 +17,9 @@
 					<div class="product-price">$ <%= @item.price %></div>
 					<div class="product-stock">In Stock</div>
           <hr>
-          <% if user_signed_in?%>
+					<% if user_signed_in?%>
             <div class="btn-group cart">
-              <button type="button" class="btn btn-success">
-                Add to cart
-              </button>
-            </div>
-            <div class="btn-group wishlist">
-              <button type="button" class="btn btn-danger">
-                Add to wishlist
-              </button>
+							<td><%= button_to "add to cart", cart_join_table_cart_items_path(item_id: @item.id, cart_id: params[:id]), method: :post , class: "btn btn-primary"%></td>
             </div>
           <%end%>
 				</div>
