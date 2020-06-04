@@ -66,14 +66,14 @@
           <div class="card mb-4 box-shadow">
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
-                
-              <p class="list-group-item">Created </br> <%= @order.created_at %></p>
-
-              
-              
-              
-              nom de la table de jonction (mettre la deuxième boucle) find by order id x.id + display nom et prix)
-              
+              <% JoinTableOrderItem.where(order_id: x.id).all.each do |y| %>
+              <a href="#" class="list-group-item list-group-item-action">
+              <div class="d-flex w-100">
+              </div>
+              <small> <%=Item.find(y.item_id).title%> </small>
+              <small> <%=Item.find(y.item_id).price%> </small>
+              </a>
+              <%end%>              
               </div>
             </div>
           </div>
