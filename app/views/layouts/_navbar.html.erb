@@ -11,7 +11,7 @@
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= cart_path(Cart.find_by(user_id: current_user.id)) %>">Cart</a>
+          <a class="nav-link" href="<%= panier_path %>">Cart</a>
         </li>
       <% end %>
       <li class="nav-item dropdown">
