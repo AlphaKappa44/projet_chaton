@@ -17,7 +17,7 @@
           <hr>
 					<% if user_signed_in?%>
             <div class="btn-group cart">
-							<td><%= button_to "add to cart", cart_join_table_cart_items_path(item_id: @item.id, cart_id: params[:id]), method: :post , class: "btn btn-primary"%></td>
+							<td><%= button_to "add to cart", cart_join_table_cart_items_path(item_id: @item.id, cart_id: params[:id]), method: :post , class: "btn btn-info"%></td>
             </div>
           <%end%>
 				</div>
