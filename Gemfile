@@ -1,12 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-
-gem 'bootstrap-sass' 
-
-gem 'jquery-rails'
-
-
 ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -54,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # test pour les emails
+  gem "letter_opener"
 end
 
 group :test do
@@ -73,7 +69,17 @@ gem 'table_print'
 # Gem for user system
 gem 'devise'
 
+# for seed
 gem 'faker'
 gem 'image_suckr'
 
+# for payement
 gem 'stripe'
+
+# for API keys
+gem 'dotenv-rails'
+
+# bootstrap
+gem 'bootstrap-sass' 
+
+gem 'jquery-rails'
