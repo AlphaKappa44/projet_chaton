@@ -3,6 +3,12 @@ class ChargesController < ApplicationController
   end
   
   def create
+    @user = current_user
+    @order = Order.create(user_id: @user.id)
+    JoinTableCartItem.where(cart_id: Cart.find_by(user_id: @user.id).id).each do |x| 
+      JoinTableOrderItem.create(order_id: @order.id, item_id: x.item_id)
+    end
+    Cart.empty(@user)
     # Amount in cents
     @amount = 500
   
@@ -18,6 +24,8 @@ class ChargesController < ApplicationController
       currency: 'usd',
     })
   
+    redirect_to root_path
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path
