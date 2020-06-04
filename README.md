@@ -1,5 +1,12 @@
 # README
 
+To test our fantastic app go to the site and see or buy our most beautiful cat pictures: 
+
+https://projet-chaton-development.herokuapp.com/ 
+or
+https://projet-chaton-production.herokuapp.com/
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
