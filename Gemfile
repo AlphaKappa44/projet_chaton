@@ -69,12 +69,17 @@ gem 'table_print'
 # Gem for user system
 gem 'devise'
 
+# for seed
 gem 'faker'
 gem 'image_suckr'
+
+# for payement
+gem 'stripe'
 
 # for API keys
 gem 'dotenv-rails'
 
+# bootstrap
 gem 'bootstrap-sass' 
 
 gem 'jquery-rails'
